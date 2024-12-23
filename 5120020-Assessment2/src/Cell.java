@@ -6,17 +6,17 @@ import java.awt.Graphics2D;
 public class Cell {//content of this cell (empty, cross, nought)
 	Player content;
 	//row and column of this cell
-	int row, col;
+	int Row, Col;
 	
 	/** Constructor to initialise this cell with the specified row and col */
-	public Cell(int row, int col) {
+	public Cell(int Row, int Col) {
 		
-		// TODO: Initialise the variables row, col 
-
+		//Initialises both the row and col variables 
+		this.Col = Col;
+		this.Row = Row;
 		
-		
-		//TODO: call the method that sets the cell content to EMPTY
-		 
+		//Calls the method that sets the cell content to EMPTY
+		 clear();
 	}
 	
 
@@ -27,12 +27,12 @@ public class Cell {//content of this cell (empty, cross, nought)
 		graphic2D.setStroke(new BasicStroke(GameMain.SYMBOL_STROKE_WIDTH, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 		
 		//draw the symbol in the position
-		int x1 = col * GameMain.CELL_SIZE + GameMain.CELL_PADDING;
-		int y1 = row * GameMain.CELL_SIZE + GameMain.CELL_PADDING;
+		int x1 = Col * GameMain.CELL_SIZE + GameMain.CELL_PADDING;
+		int y1 = Row * GameMain.CELL_SIZE + GameMain.CELL_PADDING;
 		if (content == Player.Cross) {
 			graphic2D.setColor(Color.RED);
-			int x2 = (col + 1) * GameMain.CELL_SIZE - GameMain.CELL_PADDING;
-			int y2 = (row + 1) * GameMain.CELL_SIZE - GameMain.CELL_PADDING;
+			int x2 = (Col + 1) * GameMain.CELL_SIZE - GameMain.CELL_PADDING;
+			int y2 = (Row + 1) * GameMain.CELL_SIZE - GameMain.CELL_PADDING;
 			graphic2D.drawLine(x1, y1, x2, y2);
 			graphic2D.drawLine(x2, y1, x1, y2);
 		}else if (content == Player.Nought) {
@@ -44,8 +44,8 @@ public class Cell {//content of this cell (empty, cross, nought)
 	/** Set this cell's content to EMPTY */
 	public void clear() {
 		
-		// TODO: Set the value of content to Empty (Remember this is an enum)
-
+		//Sets the value of content to Empty
+		content = Player.Empty;
 		
 	}		
 }
