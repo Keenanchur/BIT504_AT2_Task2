@@ -103,10 +103,10 @@ public class GameMain extends JPanel implements MouseListener{
 	
 	  /** Initialise the game-board contents and the current status of GameState and Player) */
 		public void initGame() {
-			for (int row = 0; row < ROWS; ++row) {          
-				for (int col = 0; col < COLS; ++col) {  
+			for (int Row = 0; Row < ROWS; ++Row) {          
+				for (int Col = 0; Col < COLS; ++Col) {  
 					// all cells empty
-					Board.cells[row][col].content = Player.Empty;           
+					Board.Cells[Row][Col].content = Player.Empty;           
 				}
 			}
 			 currentState = GameState.Playing;
@@ -117,9 +117,9 @@ public class GameMain extends JPanel implements MouseListener{
 		 * If no winner then isDraw is called to see if deadlock, if not GameState stays as PLAYING
 		 *   
 		 */
-		public void updateGame(Player thePlayer, int row, int col) {
+		public void updateGame(Player thePlayer, int Row, int Col) {
 			//check for win after play
-			if(Board.hasWon(thePlayer, row, col)) {
+			if(Board.hasWon(thePlayer, Row, Col)) {
 				if(thePlayer == Player.Cross) {
 		             currentState = GameState.Cross_won;
 		         } else if(thePlayer == Player.Nought) {
@@ -144,9 +144,9 @@ public class GameMain extends JPanel implements MouseListener{
 		int rowSelected = mouseY / CELL_SIZE;             
 		int colSelected = mouseX / CELL_SIZE;               			
 		if (currentState == GameState.Playing) {                
-			if (rowSelected >= 0 && rowSelected < ROWS && colSelected >= 0 && colSelected < COLS && Board.cells[rowSelected][colSelected].content == Player.Empty) {
+			if (rowSelected >= 0 && rowSelected < ROWS && colSelected >= 0 && colSelected < COLS && Board.Cells[rowSelected][colSelected].content == Player.Empty) {
 				// move  
-				Board.cells[rowSelected][colSelected].content = currentPlayer; 
+				Board.Cells[rowSelected][colSelected].content = currentPlayer; 
 				// update currentState                  
 				updateGame(currentPlayer, rowSelected, colSelected); 
 				// Switch player
