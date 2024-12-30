@@ -14,11 +14,18 @@ public class Cell {//content of this cell (empty, cross, nought)
 		//Initialises both the row and col variables 
 		this.Col = Col;
 		this.Row = Row;
-		
+		this.content = Player.Empty;
 		//Calls the method that sets the cell content to EMPTY
-		 clear();
+		clear();
+	} 
+	
+	public void setContent(Player content) {
+		this.content = content;
 	}
 	
+	public Player getContent() {
+		return content;
+	}
 
 	/** Paint itself on the graphics canvas, given the Graphics context g */ 
 	public void paint(Graphics g) {
@@ -45,7 +52,7 @@ public class Cell {//content of this cell (empty, cross, nought)
 	public void clear() {
 		
 		//Sets the value of content to Empty
-		content = Player.Empty;
+		this.content = Player.Empty;
 		
 	}		
 }

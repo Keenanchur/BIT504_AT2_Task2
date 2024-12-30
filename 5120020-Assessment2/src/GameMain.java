@@ -122,14 +122,12 @@ public class GameMain extends JPanel implements MouseListener{
 			if(Board.hasWon(thePlayer, Row, Col)) {
 				if(thePlayer == Player.Cross) {
 		             currentState = GameState.Cross_won;
-		         } else if(thePlayer == Player.Nought) {
+		         } else {//if(thePlayer == Player.Nought) {
 		             currentState = GameState.Nought_won;
 		         }//Determines the winning player
-			} else 
-				if (Board.isDraw ()) {
-					currentState = GameState.Draw;//Sets currentstate to draw gamestate	
-				
-			}
+			} else if (Board.isDraw ()) {
+					currentState = GameState.Draw;//Sets currentstate to draw gamestate		
+			} else currentState = GameState.Playing;
 			//otherwise no change to current state of playing
 		}
 		/** Event handler for the mouse click on the JPanel. If selected cell is valid and Empty then current player is added to cell content.

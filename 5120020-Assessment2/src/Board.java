@@ -26,8 +26,8 @@ public class Board {// grid line width
 	public boolean isDraw() {
 		for(int Row = 0; Row < GameMain.ROWS; ++Row) {
 			for (int Col = 0; Col < GameMain.COLS; ++Col) {
-				if (Cells[Row][Col].content == Player.Empty);{
-				return false;
+				if (Cells[Row][Col].content == Player.Empty){
+				return false; 
 			}
 		}
 	}
@@ -37,11 +37,11 @@ public class Board {// grid line width
 	/** Return true if the current player "thePlayer" has won after making their move  */
 	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) {
 		 //Checks if player has 3-in-that-row
-		if(Cells[playerRow][0].content == thePlayer && Cells[playerRow][1].content == thePlayer && Cells[playerRow][2].content == thePlayer )
+		if (Cells[playerRow][0].content == thePlayer && Cells[playerRow][1].content == thePlayer && Cells[playerRow][2].content == thePlayer)
 			return true; 
 		
 		 //Checks if the player has 3 in the playerCol.
-		if(Cells[0][playerRow].content == thePlayer && Cells[1][playerCol].content == thePlayer && Cells[2][playerCol].content == thePlayer )
+		if (Cells[0][playerCol].content == thePlayer && Cells[1][playerCol].content == thePlayer && Cells[2][playerCol].content == thePlayer)
 			return true;
 		
 		 //Checks if there's 3-in-the-diagonal
